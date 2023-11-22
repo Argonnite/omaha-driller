@@ -1,7 +1,7 @@
 import random
 
 paired = True
-suit_grp = ['ds', 'ss']
+suit_grp = ['ds', 'ss', 'rb']
 suits = 'shdc'
 suits = list(suits)
 ranks = ['a', 2, 3, 4, 5, 6, 7, 8, 9, 't', 'j', 'q', 'k']
@@ -39,7 +39,7 @@ while True:
         random.shuffle(deck)
         pocket.append(deck.pop(0))
         pocket.append(deck.pop(0))
-    else:
+    elif suitings == 'ds':
         for card in deck:
             if suit_1 == card[1]:
                 pocket.append(card)
@@ -50,6 +50,22 @@ while True:
                 pocket.append(card)
                 deck.remove(card)
                 break
+    else: #rb
+        remaining_suit = suit_indices.pop(0)
+        remaining_suit = suits[remaining_suit]
+        for card in deck:
+            if remaining_suit == card[1]:
+                pocket.append(card)
+                deck.remove(card)
+                break
+        remaining_suit = suit_indices.pop(0)
+        remaining_suit = suits[remaining_suit]
+        for card in deck:
+            if remaining_suit == card[1]:
+                pocket.append(card)
+                deck.remove(card)
+                break
+
 
     random.shuffle(pocket)
     print(' '.join(pocket))

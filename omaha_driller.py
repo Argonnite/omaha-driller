@@ -30,42 +30,12 @@ while True:
 
     ## make pair
     pocket.append(str(rank_1) + suit_1)
-    deck.remove(pocket[0])
     pocket.append(str(rank_1) + suit_2)
+    deck.remove(pocket[0])
     deck.remove(pocket[1])
-
-    suitings = random.choice(suit_grp)
-    if suitings == 'ss':
-        random.shuffle(deck)
-        pocket.append(deck.pop(0))
-        pocket.append(deck.pop(0))
-    elif suitings == 'ds':
-        for card in deck:
-            if suit_1 == card[1]:
-                pocket.append(card)
-                deck.remove(card)
-                break
-        for card in deck:
-            if suit_2 == card[1]:
-                pocket.append(card)
-                deck.remove(card)
-                break
-    else: #rb
-        remaining_suit = suit_indices.pop(0)
-        remaining_suit = suits[remaining_suit]
-        for card in deck:
-            if remaining_suit == card[1]:
-                pocket.append(card)
-                deck.remove(card)
-                break
-        remaining_suit = suit_indices.pop(0)
-        remaining_suit = suits[remaining_suit]
-        for card in deck:
-            if remaining_suit == card[1]:
-                pocket.append(card)
-                deck.remove(card)
-                break
-
+    random.shuffle(deck)
+    pocket.append(deck.pop(0))
+    pocket.append(deck.pop(0))
 
     random.shuffle(pocket)
     print(' '.join(pocket))

@@ -1,6 +1,6 @@
 import random
 
-paired = True
+paired = False
 suit_grp = ['ds', 'ss', 'rb']
 suits = 'shdc'
 suits = list(suits)
@@ -37,12 +37,18 @@ while True:
         random.shuffle(deck)
         pocket.append(deck.pop(0))
         pocket.append(deck.pop(0))
-    else:
+    elif paired == False:
         random.shuffle(deck)
         pocket.append(deck.pop(0))
         pocket.append(deck.pop(0))
         pocket.append(deck.pop(0))
         pocket.append(deck.pop(0))
+    else:
+        pocket = deck.copy()
+
+    random.shuffle(pocket)
+    print(' '.join(pocket))
+
 
     random.shuffle(pocket)
     print(' '.join(pocket))

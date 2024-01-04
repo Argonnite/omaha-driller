@@ -49,8 +49,3 @@ while True:
     random.shuffle(pocket)
     print(' '.join(pocket))
 
-
-    random.shuffle(pocket)
-    print(' '.join(pocket))
-
-
